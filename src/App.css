@@ -1,0 +1,85 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+* {
+  font-family: "Pixelify Sans", sans-serif;
+}
+
+
+/* Main container (app wrapper) */
+.app-container {
+  position: relative;
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 4s ease-in; /* Fade-in transition */
+  overflow: hidden; /* Ensures no content goes outside the container */
+}
+
+/* Fade-in effect (when fadeIn state is true) */
+.app-container.fade-in {
+  opacity: 1;
+}
+
+/* Background layer with GIF */
+.background-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('/src/assets/background.gif') no-repeat center center;
+  background-size: cover;
+  filter: brightness(15%);
+  z-index: -1; /* Keep the background behind content */
+}
+
+/* Content area (text and clickable elements) */
+.content {
+  color: white;
+  z-index: 1;
+  text-align: center;
+  font-family: 'Pixelify Sans', sans-serif;
+  position: relative;
+  width: 100%; /* Ensures the content takes the full width of the screen */
+  display: flex;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+  text-align: center;
+  height: 100%; /* Make sure the content fills the full height */
+}
+
+/* Floating text animation */
+@keyframes float {
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0); }
+}
+
+.floating-text {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Styling for h1 text (optional customization) */
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.clickable-gif {
+  width: 200px;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.clickable-gif:hover {
+  transform: scale(1.05);
+}
